@@ -2,9 +2,10 @@ import { useGLTF,useScroll } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
 import { useControls } from "leva";
 import gsap from "gsap";
-import ScrollTrigger from "gsap-trial/ScrollTrigger";
 
 export default function Car() {
+    const { nodes, materials } = useGLTF("/scene.glb");
+
     return(
         <>
             <directionalLight
@@ -12,8 +13,12 @@ export default function Car() {
 				position={[-2.38, 1.32, 0.74]}
 				intensity={5}
             />
-            <group>
-
+            <group 
+                scale={10}
+            >
+                <mesh
+                    geometry={nodes.car_body.g}
+                />
             </group>
         </>
     )
