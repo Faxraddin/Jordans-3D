@@ -1,4 +1,4 @@
-export const Hero = () => {
+export default function Hero () {
 	return (
 		<section className="h-screen relative bg-black ">
 			<div className="absolute top-[40%] left-20 z-20">

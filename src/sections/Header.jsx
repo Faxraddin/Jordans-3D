@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Header = () => {
+export default function Header () {
 	return (
 		<header className="z-50 absolute top-0 text-black py-2 px-16 font-extrabold tracking-widest uppercase flex justify-between items-center w-full">
 			{/* logo / name */}
