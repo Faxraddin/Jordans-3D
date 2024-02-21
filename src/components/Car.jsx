@@ -1,8 +1,41 @@
-import React, { useRef } from 'react'
-import { useGLTF } from '@react-three/drei'
+import React, { useRef } from 'react';
+import { CameraControls, Plane, useGLTF, useScroll  } from '@react-three/drei';
+
+import {
+	forwardRef,
+	useEffect,
+	useLayoutEffect,
+	useState,
+} from "react";
+import { useControls } from "leva";
+import { useThree } from "@react-three/fiber";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 export default function Car(props) {
-  const { nodes, materials } = useGLTF('/scene.gltf')
+  const { nodes, materials } = useGLTF('/scene.gltf');
+  const car = useRef(null);
+
+  const {scene,camera} = useThree;
+  const tl = gsap.timeline();
+
+  useLayoutEffect(()=>{
+    new ScrollTrigger({});
+
+    tl.to(camera.position,{
+      x: 5,
+			y: 4.0,
+			z: 2.8,
+      ScrollTrigger:{
+        trigger: ".second-section",
+				start: "top bottom",
+				end: "top top",
+				scrub: true,
+				immediateRender: false,
+      },
+    })
+  },[])
+
   return (
     <group rotation-x={[-Math.PI * 0.5]} position={[2, 1, -1.5]} castShadow scale={0.7} {...props} dispose={null}>
       <group 
