@@ -16,9 +16,6 @@ export default function Car() {
             <group 
                 scale={10}
             >
-                <mesh
-                    geometry={nodes.car_body.g}
-                />
             </group>
         </>
     )
