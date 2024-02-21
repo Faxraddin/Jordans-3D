@@ -7,7 +7,14 @@ import Car from "./components/Car";
 
 export default function CanvasContainer () {
     return(
-        <Canvas camera={{ position: [0, 0, 5] }}>
+        <Canvas 
+            camera={{
+                position: [
+                    4.742922067308307, 2.2387122409413784, 1.2218255872664914,
+                ],
+            }}
+            shadows
+        >
             <OrbitControls
                 enablePan={false}
                 enableRotate={false}

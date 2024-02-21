@@ -4,8 +4,10 @@ import { useGLTF } from '@react-three/drei'
 export default function Car(props) {
   const { nodes, materials } = useGLTF('/scene.gltf')
   return (
-    <group {...props} dispose={null}>
-      <group rotation={[-Math.PI / 2, 0, 0]}>
+    <group rotation-x={[-Math.PI * 0.5]} position={[2, 1, -1.5]} castShadow scale={0.7} {...props} dispose={null}>
+      <group 
+				
+      >
         <mesh geometry={nodes.Object_2.geometry} material={materials.F40_Carbon} />
         <mesh geometry={nodes.Object_3.geometry} material={materials.F40_GridD} />
         <mesh geometry={nodes.Object_4.geometry} material={materials.F40_Headlights} />
