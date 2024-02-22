@@ -14,30 +14,28 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 export default function Car(props) {
   const { nodes, materials } = useGLTF('/scene.gltf');
-  const car = useRef(null);
+  const car = useRef();
 
   const {scene,camera} = useThree;
   const tl = gsap.timeline();
 
   useLayoutEffect(()=>{
-    new ScrollTrigger({});
-
     tl.to(camera.position,{
       x: 5,
 			y: 4.0,
 			z: 2.8,
-      ScrollTrigger:{
-        trigger: ".second-section",
+			scrollTrigger: {
+				trigger: ".second-section",
 				start: "top bottom",
 				end: "top top",
 				scrub: true,
 				immediateRender: false,
-      },
+			},
     })
   },[])
 
   return (
-    <group rotation-x={[-Math.PI * 0.5]} position={[2, 1, -1.5]} castShadow scale={0.7} {...props} dispose={null}>
+    <group ref={car} rotation-x={[-Math.PI * 0.5]} position={[2, 1, -1.5]} castShadow scale={0.7} {...props} dispose={null}>
       <group 
 				
       >
