@@ -10,7 +10,7 @@ import {
 import { useFrame, useThree } from "@react-three/fiber";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { useControls } from 'leva';
+//import { useControls } from 'leva';
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -21,34 +21,34 @@ export default function Car(props) {
   const {scene,camera} = useThree();
   const tl = gsap.timeline();
 
-  const {cameraPosition,scenePosition,sceneRotation} = useControls({
-    cameraPosition:{
-      value:{x:0,y:0,z:0},
-      step:0.5
-    },
-    scenePosition:{
-      value:{x:0,y:0,z:0},
-      step:0.5
-    },
-    sceneRotation:{
-      value:{x:0,y:0,z:0},
-      step:0.5
-    }
-  })
+  //const {cameraPosition,scenePosition,sceneRotation} = useControls({
+  //  cameraPosition:{
+  //    value:{x:0,y:0,z:0},
+  //    step:0.5
+  //  },
+  //  scenePosition:{
+  //    value:{x:0,y:0,z:0},
+  //    step:0.5
+  //  },
+  //  sceneRotation:{
+  //    value:{x:0,y:0,z:0},
+  //    step:0.5
+  //  }
+  //})
 
-  useFrame(()=>{
-    camera.position.x = cameraPosition.x
-    camera.position.y = cameraPosition.y
-    camera.position.z = cameraPosition.z
+  //useFrame(()=>{
+  //  camera.position.x = cameraPosition.x
+  //  camera.position.y = cameraPosition.y
+  //  camera.position.z = cameraPosition.z
 
-    scene.position.x = scenePosition.x
-    scene.position.y = scenePosition.y
-    scene.position.z = scenePosition.z
+  //  scene.position.x = scenePosition.x
+  //  scene.position.y = scenePosition.y
+  //  scene.position.z = scenePosition.z
 
-    scene.rotation.x = sceneRotation.x
-    scene.rotation.y = sceneRotation.y
-    scene.rotation.z = sceneRotation.z
-  })
+  //  scene.rotation.x = sceneRotation.x
+  //  scene.rotation.y = sceneRotation.y
+  //  scene.rotation.z = sceneRotation.z
+  //})
 
   return (
     <group ref={car} rotation-x={[-Math.PI * 0.5]} position={[2, 1, -1.5]} castShadow scale={0.7} {...props} dispose={null}>
