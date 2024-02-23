@@ -12,14 +12,17 @@ import { useThree } from "@react-three/fiber";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger)
+
 export default function Car(props) {
   const { nodes, materials } = useGLTF('/scene.gltf');
-  const car = useRef();
+  const car = useRef(null);
 
-  const {scene,camera} = useThree;
+  const {scene,camera} = useThree();
   const tl = gsap.timeline();
 
   useLayoutEffect(()=>{
+    new ScrollTrigger({});
     tl.to(camera.position,{
       x: 5,
 			y: 4.0,
